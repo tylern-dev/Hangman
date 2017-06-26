@@ -24,7 +24,7 @@
 			keyPressed = event.key;
 			
 			//if statement for checking the array for the letter pressed using the function letterCheck()	
-			if (letterCheck(word,keyPressed)){
+			if (letterCheck(word[ranWord],keyPressed)){
 				rightGuess.push(keyPressed)
 			} else {
 				wrongGuess.push(keyPressed)
