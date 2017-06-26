@@ -40,7 +40,7 @@
 			return wordArray.indexOf(key) > -1;
 		}
 			
-		
+		//counts how many times a single letter shows up in the word
 		function letterCount (array, element){
   			for ( var i = 0; i<array.length; i++){
    				 if(array[i]===element){
@@ -49,8 +49,12 @@
   			}
 		}
 
-		
+		//randomizing function
+		 var wordRandomizer = function (array){
+     			 var ranWord = Math.floor(Math.random()*array.length);
+      			return(ranWord)
 
+   		 }
 
 		
 
