@@ -15,6 +15,7 @@
 		var wrongGuessText = document.getElementById('wrong');
 		var rightGuessText = document.getElementById('right');
 		var word = ['t','e','r','m','n','i','a','t','o','r'];
+		var ranWord = Math.floor(Math.random()*word.length);
 		
 		var keyPressed;
 
@@ -49,12 +50,7 @@
   			}
 		}
 
-		//randomizing function
-		 var wordRandomizer = function (array){
-     			 var ranWord = Math.floor(Math.random()*array.length);
-      			return(ranWord)
-
-   		 }
+		
 
 		
 
