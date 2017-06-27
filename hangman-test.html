@@ -11,14 +11,15 @@
 	
 	<script>
 		var word = [['t','e','r','m','n','i','a','t','o','r'],['b','a','t','m','a','n'],['s','u','p','e','r','m','a','n'],['w','o','n','n','d','e','r','w','o','m','a','n']];
+		var randomWord = Math.floor(Math.random()*word.length);
 		var keyPressed;
 		var rightGuess = [];
 		var wrongGuess = [];
 		var wrongGuessText = document.getElementById('wrong');
 		var rightGuessText = document.getElementById('right');
-		var randomWord = Math.floor(Math.random()*word.length);	
 		var win;
 		var lose;	
+		var counts=[];
 		
 		
 		
@@ -29,6 +30,7 @@
 		for (var i=0; i<guessBlank.length; i++){
 			guessBlank[i] = "_ ";
 			rightGuessText.innerHTML = guessBlank.join('');
+			if ()
 		}
 
 
@@ -52,15 +54,19 @@
 			
 
 		//counts how many times a single letter shows up in the word
-		function letterCount (array, key){
-			var counts=[];
+		//Look at codePen for the work I was doing with this function
+		function letterCountAdd (array, key){
   			for ( var i = 0; i<array.length; i++){
    				 if(array[i]===key){
       					counts.push(i);
    				 }
   			}
+  			return rightGuess.splice(counts, 0, key)
 		}
 
+
+
+		//this just runs the program for the time being
 		function letterDisplay (){
 			if (letterCheck(word[randomWord],keyPressed)){
 				return rightGuess.push(keyPressed);
