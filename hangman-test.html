@@ -7,37 +7,44 @@
 <body>
 	<p>you guessed Right: <span id='right'></span></p>
 	<p>you guessed Wrong: <span id='wrong'></span></p>
-
+	
 	
 	<script>
-		var win;
-		var lose;
+		var word = [['t','e','r','m','n','i','a','t','o','r'],['b','a','t','m','a','n'],['s','u','p','e','r','m','a','n'],['w','o','n','n','d','e','r','w','o','m','a','n']];
+		var keyPressed;
 		var rightGuess = [];
 		var wrongGuess = [];
 		var wrongGuessText = document.getElementById('wrong');
 		var rightGuessText = document.getElementById('right');
-		var word = [['t','e','r','m','n','i','a','t','o','r'],['b','a','t','m','a','n'],['s','u','p','e','r','m','a','n'],['w','o','n','n','d','e','r','w','o','m','a','n']];
-		var ranWord = Math.floor(Math.random()*word.length);
+		var randomWord = Math.floor(Math.random()*word.length);	
+		var win;
+		var lose;	
 		
-		var keyPressed;
+		
+		
+
+		//creates new array to be used with _ _ _ _
+		var guessBlank = word[randomWord].slice(0,word[randomWord].length);
+			
+		for (var i=0; i<guessBlank.length; i++){
+			guessBlank[i] = "_ ";
+			rightGuessText.innerHTML = guessBlank.join('');
+		}
+
 
 
 		document.onkeyup = function(event){
 			keyPressed = event.key;
-			
-			//if statement for checking the array for the letter pressed using the function letterCheck()	
-			if (letterCheck(word[ranWord],keyPressed)){
-				rightGuess.push(keyPressed)
-			} else {
-				wrongGuess.push(keyPressed)
-			}
+			letterDisplay();
 
 			rightGuessText.innerHTML = rightGuess.join('');
 			wrongGuessText.innerHTML = wrongGuess.join('');
 		}
 
+		
 
 
+		
 		//this checks the letter pressed against the array. If letter is present true else false using .indexOf
 		function letterCheck (wordArray, key){
 			return wordArray.indexOf(key) > -1;
@@ -45,12 +52,21 @@
 			
 
 		//counts how many times a single letter shows up in the word
-		function letterCount (array, element){
+		function letterCount (array, key){
+			var counts=[];
   			for ( var i = 0; i<array.length; i++){
-   				 if(array[i]===element){
+   				 if(array[i]===key){
       					counts.push(i);
    				 }
   			}
+		}
+
+		function letterDisplay (){
+			if (letterCheck(word[randomWord],keyPressed)){
+				return rightGuess.push(keyPressed);
+			} else {
+				return wrongGuess.push(keyPressed);
+			}
 		}
 
 
