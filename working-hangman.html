@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hangman Game</title>
+</head>
+<body>
+  <h1>Press a button to start play!</h1>
+  <p>you guessed Right: <span id='right'></span></p>
+  <p>you guessed Wrong: <span id='wrong'></span></p>
+
+
+<script>
+var wordList = [
+  'terminator',
+  'batman',
+  'superman',
+  'wonderwoman',
+  'deadpool',
+  'wolverine']
+
+var currentWord = wordList[Math.floor(Math.random()*wordList.length)];
+var keyPressed; //current letter pressed
+var rightGuess = [];
+var knownLetters = '';
+var wrongGuessText = document.getElementById('wrong');
+var rightGuessText = document.getElementById('right');
+var win;
+var lose; 
+var lettersArray;
+
+
+for(var i = 0; i<currentWord.length; i++){
+    knownLetters += '_';
+}
+
+  document.onkeyup = function(event){
+      keyPressed = event.key;
+      for (var i=0; i<currentWord.length; i++){
+          if(keyPressed === currentWord[i]){
+              rightGuess.push(i);
+          }
+      }
+    letterArrayFunc(keyPressed)
+    rightGuessText.innerHTML=lettersArray.join('');
+
+  }
+
+
+  //this function allows for the individual letters to stay displayed. without it being a function, previous correct
+  //letters would disapear
+  lettersArray = knownLetters.split('');
+  function letterArrayFunc(key){
+      for (var i = 0; i<lettersArray.length; i++){
+          if(key === currentWord[i]){
+              lettersArray[i] = key;
+          }
+      }
+    }
+
+    
+    // console.log('lettersArray'+lettersArray)
+    // console.log(currentWord+knownLetters)
+    // console.log(rightGuess)
+    
+
+</script>
+</body>
+</html>
