@@ -16,3 +16,12 @@ body{
 	font-size: 24px;
 	font-weight: bolder;
 }
+
+.lose-count{
+	font-size: 24px;
+	font-weight: bolder;
+}
+.win-count{
+	font-size: 24px;
+	font-weight: bolder;
+}
