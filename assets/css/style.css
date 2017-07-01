@@ -1,0 +1,18 @@
+body{
+	background: #8cdeff;
+}
+
+.right-answer{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.wrong-answer{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.guesses-remaining{
+	font-size: 24px;
+	font-weight: bolder;
+}

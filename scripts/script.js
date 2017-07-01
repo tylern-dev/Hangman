@@ -24,6 +24,7 @@ var guessesRemaining = 9;
 var lettersArray;
 
 
+
   for(var i = 0; i<currentWord.length; i++){
       knownLetters += '_';
   }
@@ -79,7 +80,7 @@ document.onkeyup = function(event){
       
       //reset game option?
       //new game button?
-
+      
       rightGuessText.innerHTML=lettersArray.join(' ');
       wrongGuessText.innerHTML = wrongLetters.join(' ');  
       guessesRemainingText.innerHTML = guessesRemaining;
